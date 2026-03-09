@@ -1,0 +1,141 @@
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    color: var(--text-main);
+}
+
+.admin-sidebar {
+    width: 260px;
+    background-color: #ffffff;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    z-index: 100;
+}
+
+.admin-sidebar.collapsed {
+    width: 80px;
+}
+
+.sidebar-header {
+    padding: 2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidebar-header h2 {
+    font-size: 1.2rem;
+    color: var(--accent);
+    white-space: nowrap;
+}
+
+.collapse-btn {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-nav {
+    flex: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    color: var(--text-dim);
+    transition: all 0.2s ease;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+    background: #f8f9fa;
+    color: var(--accent);
+}
+
+.sidebar-link.active {
+    color: var(--accent);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    font-weight: 600;
+}
+
+.sidebar-link.logout {
+    margin-top: auto;
+    color: #dc3545;
+}
+
+.admin-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.admin-topbar {
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.topbar-info h1 {
+    font-size: 1.5rem;
+    color: #000000;
+    margin-bottom: 0.2rem;
+}
+
+.topbar-info p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+.admin-user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.admin-page-container {
+    padding: 1rem 2rem 2rem;
+}
+
+@media (max-width: 768px) {
+    .admin-sidebar {
+        position: fixed;
+        left: -260px;
+    }
+}

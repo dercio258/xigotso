@@ -1,0 +1,48 @@
+.product-manager {
+    padding: 1rem;
+}
+
+.product-cell {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.product-thumb {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.price-tag {
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-icon svg {
+    position: absolute;
+    left: 1rem;
+    color: var(--text-dim);
+}
+
+.input-with-icon input {
+    padding-left: 3rem !important;
+}
+
+.product-editor {
+    max-width: 800px;
+    padding: 2.5rem;
+    border-radius: 20px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
