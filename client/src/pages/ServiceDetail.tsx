@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, Send, CheckCircle, ArrowLeft } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 import './ServiceDetail.css';
@@ -75,6 +75,7 @@ ${formData.name}`;
     };
 
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     if (loading) return <div className="section">Carregando detalhes do serviço...</div>;
     if (!service) return <div className="section">Serviço não encontrado.</div>;

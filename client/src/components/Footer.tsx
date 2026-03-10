@@ -1,4 +1,4 @@
-import { Github, Instagram, Facebook, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Instagram, Facebook, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className="footer">
             <div className="section footer-grid">
                 <div className="footer-brand">
-                    
+
                     <p className="footer-desc">
                         Soluções & Serviços, Lda. Especialistas em identidade visual e marketing digital em Moçambique.
                     </p>
@@ -32,8 +32,8 @@ const Footer = () => {
                     <ul>
                         <li><a href="#">Sobre Nós</a></li>
                         <li><a href="#">Portfólio</a></li>
-                        
-                        
+
+
                     </ul>
                 </div>
 
@@ -54,7 +54,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            
+
         </footer>
     );
 };
