@@ -74,7 +74,7 @@ ${formData.name}`;
         alert('Pedido de cotação enviado com sucesso! A equipa XIGOTSO entrará em contacto em breve.');
     };
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
     if (loading) return <div className="section">Carregando detalhes do serviço...</div>;
     if (!service) return <div className="section">Serviço não encontrado.</div>;
@@ -82,73 +82,102 @@ ${formData.name}`;
     const gallery = service.gallery || [];
 
     return (
-        <div className="service-detail-page section">
+        <div className="service-detail-page-v2">
             <div className="detail-container-new">
-                {/* Back Link */}
-                <Link to="/servicos" className="back-link">
-                    <ArrowLeft size={16} /> Ver Todos Serviços
-                </Link>
-
+                {/* Compact Header & Grid Layout */}
                 <div className="detail-main-layout">
-                    {/* Main Content Area */}
+
+                    {/* Primary Content Side */}
                     <div className="detail-content-primary">
                         <motion.div
-                            className="detail-title-section"
+                            className="detail-header-minimal"
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                         >
-                            <span className="subtitle">Serviço Especializado</span>
+                            <Link to="/servicos" className="back-link-minimal">
+                                <ArrowLeft size={14} /> Voltar
+                            </Link>
                             <h1>{service.title}</h1>
                         </motion.div>
 
+                        {/* High-Impact Mosaic Gallery */}
                         <motion.div
-                            className="detail-text-rich"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
+                            className="service-mosaic-gallery"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
                         >
-                            <p className="description-large">{service.description}</p>
-                        </motion.div>
-
-                        {/* Galeria de Imagens */}
-                        <motion.div
-                            className="detail-visual-section"
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4 }}
-                        >
-                            <div className="main-image-wrapper shadow-premium">
-                                <img src={gallery[0] || 'https://via.placeholder.com/1200x800'} alt={service.title} />
-                            </div>
-
-                            {gallery.length > 1 && (
-                                <div className="gallery-grid-simple">
-                                    {gallery.slice(1).map((img: string, idx: number) => (
-                                        <div key={idx} className="gallery-mini-item shadow-soft">
+                            {gallery.length > 0 ? (
+                                <div className={`mosaic-grid items-${Math.min(gallery.length, 5)}`}>
+                                    {gallery.slice(0, 5).map((img: string, idx: number) => (
+                                        <div
+                                            key={idx}
+                                            className={`mosaic-item item-${idx}`}
+                                            onClick={() => setSelectedImage(img)}
+                                        >
                                             <img src={img} alt={`${service.title} ${idx}`} />
+                                            <div className="overlay-zoom">Clique para ampliar</div>
                                         </div>
                                     ))}
                                 </div>
+                            ) : (
+                                <div className="no-images-placeholder">
+                                    <img src="https://via.placeholder.com/1200x600?text=XIGOTSO+Serviços" alt="Placeholder" />
+                                </div>
                             )}
                         </motion.div>
-                    </div>
 
-                    {/* Sidebar Area */}
-                    <aside className="detail-sidebar">
-                        <div className="features-highlight glass-clean">
-                            <h3>O que oferecemos:</h3>
-                            <div className="features-list">
-                                {service.features?.map((feature: string, i: number) => (
-                                    <div key={i} className="feature-item">
-                                        <CheckCircle size={20} />
-                                        <span>{feature}</span>
+                        <div className="detail-body-split">
+                            <motion.div
+                                className="detail-description-section"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.4 }}
+                            >
+                                <p className="description-text">{service.description}</p>
+                            </motion.div>
+
+                            {/* Sidebar Area */}
+                            <aside className="detail-sidebar-v2">
+                                <div className="features-card glass-clean">
+                                    <h3>O que oferecemos</h3>
+                                    <div className="features-list-v2">
+                                        {service.features?.map((feature: string, i: number) => (
+                                            <div key={i} className="feature-item-v2">
+                                                <CheckCircle size={18} />
+                                                <span>{feature}</span>
+                                            </div>
+                                        ))}
                                     </div>
-                                ))}
-                            </div>
+                                </div>
+                            </aside>
                         </div>
-                    </aside>
+                    </div>
                 </div>
             </div>
+
+            {/* Lightbox Modal */}
+            <AnimatePresence>
+                {selectedImage && (
+                    <motion.div
+                        className="lightbox-overlay"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setSelectedImage(null)}
+                    >
+                        <button className="close-lightbox">×</button>
+                        <motion.img
+                            src={selectedImage}
+                            alt="Full view"
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            onClick={(e) => e.stopPropagation()}
+                        />
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             {/* Floating Action Button */}
             <motion.button

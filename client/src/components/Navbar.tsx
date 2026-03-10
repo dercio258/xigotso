@@ -41,7 +41,7 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <NavLink to="/" className="navbar-logo">
-          <img src="https://res.cloudinary.com/dvcnfd5hw/image/upload/v1773057789/Gemini_Generated_Image_q6g5zgq6g5zgq6g5_kde2mp.png" alt="XIGOTSO Logo" />
+          <img src="https://res.cloudinary.com/dvcnfd5hw/image/upload/v1773134575/Gemini_Generated_Image_m2b2g5m2b2g5m2b2_ctfgjs.png" alt="XIGOTSO Logo" />
         </NavLink>
 
         <div className="navbar-toggle" onClick={() => setIsOpen(!isOpen)}>
