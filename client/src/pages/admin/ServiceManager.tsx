@@ -45,7 +45,7 @@ const ServiceManager = () => {
 
     const fetchServices = async () => {
         try {
-            const response = await fetch('http://localhost:3000/services');
+            const response = await fetch('/api/services');
             const data = await response.json();
             setServices(data);
         } catch (error) {
@@ -71,8 +71,8 @@ const ServiceManager = () => {
 
         const method = serviceToSave.id ? 'PATCH' : 'POST';
         const url = serviceToSave.id
-            ? `http://localhost:3000/services/${serviceToSave.id}`
-            : 'http://localhost:3000/services';
+            ? `/api/services/${serviceToSave.id}`
+            : '/api/services';
 
         try {
             const response = await fetch(url, {
@@ -102,7 +102,7 @@ const ServiceManager = () => {
     const handleDelete = async (id: number) => {
         if (!window.confirm('Tem a certeza que deseja remover este serviço?')) return;
         try {
-            await fetch(`http://localhost:3000/services/${id}`, {
+            await fetch(`/api/services/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -156,7 +156,7 @@ const ServiceManager = () => {
         formData.append('file', file);
 
         try {
-            const response = await fetch('http://localhost:3000/uploads', {
+            const response = await fetch('/api/uploads', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`

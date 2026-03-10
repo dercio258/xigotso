@@ -18,7 +18,7 @@ const ServiceDetail = () => {
     useEffect(() => {
         const fetchService = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/services/${slug}`);
+                const response = await fetch(`/api/services/${slug}`);
                 if (response.ok) {
                     const data = await response.json();
                     setService(data);

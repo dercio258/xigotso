@@ -8,7 +8,6 @@ import BlogPage from './pages/Blog';
 import BlogDetailPage from './pages/BlogDetail';
 import ShopPage from './pages/Shop';
 import CoursesPage from './pages/Courses';
-import MemberArea from './pages/MemberArea';
 import ContactPage from './pages/Contact';
 import PartnersPage from './pages/Partners';
 import AboutPage from './pages/About';
@@ -42,7 +41,6 @@ function AppContent() {
         <Route path="/cursos" element={<><Navbar /><main className="main-content"><CoursesPage /></main><Footer /></>} />
         <Route path="/parceiros" element={<><Navbar /><main className="main-content"><PartnersPage /></main><Footer /></>} />
         <Route path="/contacto" element={<><Navbar /><main className="main-content"><ContactPage /></main><Footer /></>} />
-        <Route path="/area-membros" element={<><Navbar /><main className="main-content"><MemberArea /></main><Footer /></>} />
 
         {/* Auth Route */}
         <Route path="/login/acess/admin" element={<LoginPage />} />

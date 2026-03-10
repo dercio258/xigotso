@@ -17,7 +17,7 @@ const BlogManager = () => {
 
     const fetchPosts = async () => {
         try {
-            const response = await fetch('http://localhost:3000/blog');
+            const response = await fetch('/api/blog');
             const data = await response.json();
             setPosts(data);
         } catch (error) {
@@ -53,7 +53,7 @@ const BlogManager = () => {
         formData.append('file', file);
 
         try {
-            const response = await fetch('http://localhost:3000/uploads', {
+            const response = await fetch('/api/uploads', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -82,8 +82,8 @@ const BlogManager = () => {
 
         const method = postToSave.id ? 'PATCH' : 'POST';
         const url = postToSave.id
-            ? `http://localhost:3000/blog/${postToSave.id}`
-            : 'http://localhost:3000/blog';
+            ? `/api/blog/${postToSave.id}`
+            : '/api/blog';
 
         try {
             const response = await fetch(url, {
@@ -111,7 +111,7 @@ const BlogManager = () => {
     const handleDelete = async (id: number) => {
         if (!window.confirm('Deseja eliminar este post?')) return;
         try {
-            const response = await fetch(`http://localhost:3000/blog/${id}`, {
+            const response = await fetch(`/api/blog/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -306,7 +306,7 @@ const BlogManager = () => {
                                         const formData = new FormData();
                                         formData.append('file', file);
                                         try {
-                                            const response = await fetch('http://localhost:3000/uploads', {
+                                            const response = await fetch('/api/uploads', {
                                                 method: 'POST',
                                                 headers: { 'Authorization': `Bearer ${token}` },
                                                 body: formData

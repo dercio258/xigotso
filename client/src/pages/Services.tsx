@@ -30,7 +30,7 @@ const ServicesPage = () => {
 
     const fetchServices = async () => {
         try {
-            const response = await fetch('http://localhost:3000/services');
+            const response = await fetch('/api/services');
             if (response.ok) {
                 const data = await response.json();
                 setServices(data);

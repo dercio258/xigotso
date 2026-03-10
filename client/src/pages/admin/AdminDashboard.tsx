@@ -23,13 +23,13 @@ const AdminDashboard = () => {
     const fetchDashboardData = async () => {
         try {
             const [summaryRes, viewsRes, activityRes] = await Promise.all([
-                fetch('http://localhost:3000/analytics/summary', {
+                fetch('/api/analytics/summary', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 }),
-                fetch('http://localhost:3000/analytics/page-views', {
+                fetch('/api/analytics/page-views', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 }),
-                fetch('http://localhost:3000/analytics/recent-activity', {
+                fetch('/api/analytics/recent-activity', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 })
             ]);

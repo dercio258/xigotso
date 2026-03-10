@@ -21,7 +21,7 @@ const Navbar = () => {
 
   const fetchServices = async () => {
     try {
-      const response = await fetch('http://localhost:3000/services');
+      const response = await fetch('/api/services');
       const data = await response.json();
       setServices(data.slice(0, 6)); // Limit to 6 for the dropdown
     } catch (error) {
@@ -103,9 +103,6 @@ const Navbar = () => {
               )}
             </li>
           ))}
-          <li>
-            <NavLink to="/area-membros" className="btn btn-primary nav-cta">Membros</NavLink>
-          </li>
         </ul>
       </div>
     </nav>
