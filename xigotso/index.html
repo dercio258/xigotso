@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XIGOTSO - Design & Inovação</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --accent: #b8860b;
+            --text-main: #1a1a1a;
+            --text-dim: #666666;
+            --border: rgba(0, 0, 0, 0.08);
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-main);
+            background: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-heading);
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('https://grupodome.com/wp-content/uploads/2024/11/nova_imagem_pagina_inicial_0.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #000;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            color: var(--text-dim);
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: #000;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Sections */
+        section {
+            padding: 8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-header span {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 800;
+        }
+
+        /* Mosaic Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 300px);
+            gap: 1.5rem;
+        }
+
+        .grid-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+            cursor: pointer;
+            background: #f0f0f0;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .grid-item .info {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .grid-item:hover .info {
+            opacity: 1;
+        }
+
+        .grid-item h3 {
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        .item-lg {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-logo img {
+            height: 30px;
+            margin-bottom: 1.5rem;
+            filter: grayscale(1);
+            opacity: 0.6;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .copy {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: repeat(4, 250px);
+            }
+
+            .hero h1 {
+                font-size: 4rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .grid-item {
+                aspect-ratio: 1;
+            }
+
+            .item-lg {
+                grid-column: auto;
+                grid-row: auto;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#" class="logo">
+            <img src="https://res.cloudinary.com/dvcnfd5hw/image/upload/v1773134575/Gemini_Generated_Image_m2b2g5m2b2g5m2b2_ctfgjs.png"
+                alt="XIGOTSO">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" id="inicio">
+        <h1>XIGOTSO</h1>
+        <p>Transformamos visões em espaços de excelência. Design de interiores, cozinhas e soluções arquitetónicas sob
+            medida.</p>
+        <a href="#servicos" class="btn btn-primary">Descobrir Projetos</a>
+    </header>
+
+    <section id="servicos">
+        <div class="section-header">
+            <span>Serviços Especializados</span>
+            <h2>Nossa Expertise</h2>
+        </div>
+        <div class="grid">
+            <div class="grid-item item-lg">
+                <img src="https://rosainteriores.com/wp-content/uploads/2021/12/11.jpg" alt="Cozinhas">
+                <div class="info">
+                    <h3>Cozinhas Premium</h3>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="https://grupodome.com/wp-content/uploads/2024/08/img-2.jpg" alt="Design">
+                <div class="info">
+                    <h3>Design de Interiores</h3>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="https://rosainteriores.com/wp-content/uploads/2017/05/slide-1-1.jpg" alt="Mobiliário">
+                <div class="info">
+                    <h3>Mobiliário Custom</h3>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="https://grupodome.com/wp-content/uploads/2024/08/img-4.jpg" alt="Roupeiros">
+                <div class="info">
+                    <h3>Roupeiros & Closets</h3>
+                </div>
+            </div>
+            <div class="grid-item">
+                <img src="https://rosainteriores.com/wp-content/uploads/2021/12/10.jpg" alt="Renovação">
+                <div class="info">
+                    <h3>Renovação Total</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" style="background: #fafafa; border-radius: 60px 60px 0 0;">
+        <div class="section-header">
+            <span>Sobre Nós</span>
+            <h2>Excelência em cada detalhe</h2>
+        </div>
+        <p style="font-size: 1.4rem; max-width: 900px; color: var(--text-dim); margin-bottom: 3rem;">
+            A XIGOTSO é o resultado de anos de dedicação à arte de criar espaços funcionais e esteticamente impecáveis.
+            Localizados no coração da inovação, trabalhamos com os melhores materiais e tecnologia de ponta para
+            entregar não apenas móveis, mas experiências de vida.
+        </p>
+        <a href="#contacto" class="btn btn-primary">Fale Connosco</a>
+    </section>
+
+    <footer id="contacto">
+        <div class="footer-logo">
+            <img src="https://res.cloudinary.com/dvcnfd5hw/image/upload/v1773134575/Gemini_Generated_Image_m2b2g5m2b2g5m2b2_ctfgjs.png"
+                alt="XIGOTSO">
+        </div>
+        <ul class="footer-links">
+            <li><a href="#">Privacidade</a></li>
+            <li><a href="#">Termos</a></li>
+            <li><a href="#">Cookies</a></li>
+        </ul>
+        <p class="copy">© 2026 XIGOTSO. Todos os direitos reservados. Design by Team XIGOTSO.</p>
+    </footer>
+
+</body>
+
+</html>
