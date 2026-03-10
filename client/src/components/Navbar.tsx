@@ -32,7 +32,7 @@ const Navbar = () => {
   const navLinks = [
     { path: '/', label: 'Início', icon: <Home size={18} /> },
     { path: '/servicos', label: 'Serviços', icon: <Briefcase size={18} />, hasDropdown: true },
-    { path: '/blog', label: 'Blog', icon: <BookOpen size={18} /> },
+    { path: '/loja', label: 'Loja', icon: <ShoppingBag size={18} /> },
     { path: '/sobre-nos', label: 'Sobre Nós', icon: <Users size={18} /> },
     { path: '/contacto', label: 'Contacto', icon: <Mail size={18} /> },
   ];
