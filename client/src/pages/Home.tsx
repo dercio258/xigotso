@@ -142,9 +142,9 @@ const Home = () => {
 
             <section id="home-services" className="home-services section">
                 <div className="section-header">
-                    <span className="subtitle">Nossos Serviços Principais</span>
-                    <h2>Soluções <span className="text-accent">360º</span> para elevar o seu negócio</h2>
-                    <p>A XIGOTSO oferece consultoria e execução especializada em branding, tecnologia e marketing digital.</p>
+
+                    <h2>Nossos Serviços Principais</h2>
+                   
                 </div>
 
                 {loading ? (

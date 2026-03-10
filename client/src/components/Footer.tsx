@@ -6,14 +6,14 @@ const Footer = () => {
         <footer className="footer">
             <div className="section footer-grid">
                 <div className="footer-brand">
-                    <img src="https://res.cloudinary.com/dvcnfd5hw/image/upload/v1773057789/Gemini_Generated_Image_q6g5zgq6g5zgq6g5_kde2mp.png" alt="XIGOTSO Logo" className="footer-logo" />
+                    <h2 className="text-accent">XIGOTSO</h2>
                     <p className="footer-desc">
-                        Xigotso Soluções & Serviços, Lda. Especialistas em identidade visual, marketing digital e soluções de design premium em Moçambique.
+                        Soluções & Serviços, Lda. Especialistas em identidade visual e marketing digital em Moçambique.
                     </p>
                     <div className="social-links">
-                        <a href="#"><Instagram size={20} /></a>
-                        <a href="#"><Facebook size={20} /></a>
-                        <a href="#"><Linkedin size={20} /></a>
+                        <a href="#"><Instagram size={18} /></a>
+                        <a href="#"><Facebook size={18} /></a>
+                        <a href="#"><Linkedin size={18} /></a>
                     </div>
                 </div>
 
