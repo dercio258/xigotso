@@ -1,14 +1,14 @@
 .footer {
     background: var(--secondary);
     border-top: 0px solid var(--border);
-    padding: 4rem 0 2rem;
+    padding: 0rem 0 1rem;
     color: var(--text-main);
 }
 
 .footer-grid {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 var(--spacing-md);
+    padding: 5rem var(--spacing-md);
     display: grid;
     grid-template-columns: 1.2fr 1fr 1fr 1.2fr;
     gap: 3rem;
@@ -24,12 +24,26 @@
     max-width: 300px;
 }
 
-.footer-col h4 {
+.footer-contact h4 {
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     color: var(--text-main);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.2rem;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+}
+
+.contact-item svg {
+    color: var(--accent);
+    flex-shrink: 0;
 }
 
 .footer-col ul {

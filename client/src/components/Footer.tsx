@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className="footer">
             <div className="section footer-grid">
                 <div className="footer-brand">
-                    <h2 className="text-accent">XIGOTSO</h2>
+                    
                     <p className="footer-desc">
                         Soluções & Serviços, Lda. Especialistas em identidade visual e marketing digital em Moçambique.
                     </p>
@@ -28,12 +28,12 @@ const Footer = () => {
                 </div>
 
                 <div className="footer-links">
-                    <h4>Empresa</h4>
+                    <h4>EMPRESA</h4>
                     <ul>
                         <li><a href="#">Sobre Nós</a></li>
                         <li><a href="#">Portfólio</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Loja</a></li>
+                        
+                        
                     </ul>
                 </div>
 
@@ -54,9 +54,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="footer-bottom">
-                <p>&copy; {new Date().getFullYear()} XIGOTSO. Todos os direitos reservados.</p>
-            </div>
+            
         </footer>
     );
 };
