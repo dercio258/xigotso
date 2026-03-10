@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Menu, X, Home, Briefcase, BookOpen, Mail, Users, ChevronDown, Sparkles } from 'lucide-react';
+import { Menu, X, Home, Briefcase, ShoppingBag, Mail, Users, ChevronDown, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
 
