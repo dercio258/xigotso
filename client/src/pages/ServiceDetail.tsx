@@ -89,59 +89,64 @@ ${formData.name}`;
                     <ArrowLeft size={16} /> Ver Todos Serviços
                 </Link>
 
-                <motion.div
-                    className="detail-header-content"
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                >
-                    <span className="subtitle">Nossos Serviços</span>
-                    <h1>{service.title}</h1>
-                </motion.div>
-
                 <div className="detail-main-layout">
-                    {/* Texto de Desenvolvimento */}
-                    <motion.div
-                        className="detail-text-rich"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        <p className="description-large">{service.description}</p>
+                    {/* Main Content Area */}
+                    <div className="detail-content-primary">
+                        <motion.div
+                            className="detail-title-section"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                        >
+                            <span className="subtitle">Serviço Especializado</span>
+                            <h1>{service.title}</h1>
+                        </motion.div>
 
-                        <div className="features-highlight">
+                        <motion.div
+                            className="detail-text-rich"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.2 }}
+                        >
+                            <p className="description-large">{service.description}</p>
+                        </motion.div>
+
+                        {/* Galeria de Imagens */}
+                        <motion.div
+                            className="detail-visual-section"
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4 }}
+                        >
+                            <div className="main-image-wrapper shadow-premium">
+                                <img src={gallery[0] || 'https://via.placeholder.com/1200x800'} alt={service.title} />
+                            </div>
+
+                            {gallery.length > 1 && (
+                                <div className="gallery-grid-simple">
+                                    {gallery.slice(1).map((img: string, idx: number) => (
+                                        <div key={idx} className="gallery-mini-item shadow-soft">
+                                            <img src={img} alt={`${service.title} ${idx}`} />
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </motion.div>
+                    </div>
+
+                    {/* Sidebar Area */}
+                    <aside className="detail-sidebar">
+                        <div className="features-highlight glass-clean">
                             <h3>O que oferecemos:</h3>
-                            <div className="features-grid">
+                            <div className="features-list">
                                 {service.features?.map((feature: string, i: number) => (
-                                    <div key={i} className="feature-pill">
-                                        <CheckCircle size={18} />
+                                    <div key={i} className="feature-item">
+                                        <CheckCircle size={20} />
                                         <span>{feature}</span>
                                     </div>
                                 ))}
                             </div>
                         </div>
-                    </motion.div>
-
-                    {/* Galeria de Imagens */}
-                    <motion.div
-                        className="detail-visual-section"
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 }}
-                    >
-                        <div className="main-image-wrapper shadow-premium">
-                            <img src={gallery[0] || 'https://via.placeholder.com/1200x800'} alt={service.title} />
-                        </div>
-
-                        {gallery.length > 1 && (
-                            <div className="gallery-grid-simple">
-                                {gallery.slice(1).map((img: string, idx: number) => (
-                                    <div key={idx} className="gallery-mini-item shadow-soft">
-                                        <img src={img} alt={`${service.title} ${idx}`} />
-                                    </div>
-                                ))}
-                            </div>
-                        )}
-                    </motion.div>
+                    </aside>
                 </div>
             </div>
 
