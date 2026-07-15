@@ -22,6 +22,7 @@ import LoginPage from './pages/auth/LoginPage';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { AuthProvider } from './context/AuthContext';
 import useAnalytics from './hooks/useAnalytics';
+import CheckoutPage from './pages/Checkout';
 import './App.css';
 
 function AppContent() {
@@ -38,6 +39,7 @@ function AppContent() {
         <Route path="/blog/:slug" element={<><Navbar /><main className="main-content"><BlogDetailPage /></main><Footer /></>} />
         <Route path="/sobre-nos" element={<><Navbar /><main className="main-content"><AboutPage /></main><Footer /></>} />
         <Route path="/loja" element={<><Navbar /><main className="main-content"><ShopPage /></main><Footer /></>} />
+        <Route path="/checkout" element={<><Navbar /><main className="main-content"><CheckoutPage /></main><Footer /></>} />
         <Route path="/cursos" element={<><Navbar /><main className="main-content"><CoursesPage /></main><Footer /></>} />
         <Route path="/parceiros" element={<><Navbar /><main className="main-content"><PartnersPage /></main><Footer /></>} />
         <Route path="/contacto" element={<><Navbar /><main className="main-content"><ContactPage /></main><Footer /></>} />

@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Menu, X, Home, Briefcase, ShoppingBag, Mail, Users, ChevronDown, Sparkles } from 'lucide-react';
+import { Menu, X, Home, Briefcase, ShoppingBag, Mail, Users, ChevronDown, Sparkles, ShoppingCart } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useCart } from '../context/CartContext';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -29,10 +30,13 @@ const Navbar = () => {
     }
   };
 
+  const { cartCount } = useCart();
+
   const navLinks = [
     { path: '/', label: 'Início', icon: <Home size={18} /> },
     { path: '/servicos', label: 'Serviços', icon: <Briefcase size={18} />, hasDropdown: true },
     { path: '/loja', label: 'Loja', icon: <ShoppingBag size={18} /> },
+    { path: '/checkout', label: cartCount > 0 ? `Carrinho (${cartCount})` : 'Carrinho', icon: <ShoppingCart size={18} /> },
     { path: '/sobre-nos', label: 'Sobre Nós', icon: <Users size={18} /> },
     { path: '/contacto', label: 'Contacto', icon: <Mail size={18} /> },
   ];

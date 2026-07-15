@@ -18,6 +18,69 @@ const iconMap: { [key: string]: React.ReactNode } = {
     'Search': <Search />
 };
 
+const staticServices = [
+    {
+        id: 1,
+        title: "Identidade Visual & Branding",
+        category: "Design",
+        slug: "identidade-visual-branding",
+        description: "Criamos logótipos únicos, paletas de cores, tipografia e diretrizes de marca completas para posicionar o seu negócio no mercado moçambicano.",
+        icon: "Palette",
+        gallery: ["https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&auto=format&fit=crop&q=80"],
+        features: ["Design de Logotipo", "Manual de Marca", "Estacionário Completo"]
+    },
+    {
+        id: 2,
+        title: "Desenvolvimento Web & E-commerce",
+        category: "Tecnologia",
+        slug: "desenvolvimento-web-ecommerce",
+        description: "Websites institucionais e lojas online rápidas, seguras e otimizadas para motores de busca (SEO) que convertem visitantes em clientes.",
+        icon: "Globe",
+        gallery: ["https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=80"],
+        features: ["Sites Responsivos", "Lojas Shopify/WooCommerce", "Integração M-Pesa"]
+    },
+    {
+        id: 3,
+        title: "Produção Multimédia & Vídeo",
+        category: "Produção",
+        slug: "producao-multimedia-video",
+        description: "Produção de vídeo promocional, cobertura de eventos, fotografia corporativa e pós-produção profissional com qualidade cinematográfica.",
+        icon: "Video",
+        gallery: ["https://images.unsplash.com/photo-1622737133809-d95047b9e673?w=800&auto=format&fit=crop&q=80"],
+        features: ["Vídeos Promocionais", "Edição de Vídeo", "Fotografia Comercial"]
+    },
+    {
+        id: 4,
+        title: "Marketing Digital & Redes Sociais",
+        category: "Marketing",
+        slug: "marketing-digital-redes-sociais",
+        description: "Gestão estratégica de redes sociais, campanhas patrocinadas (Google e Meta Ads) e criação de conteúdo focado no engajamento da marca.",
+        icon: "Share2",
+        gallery: ["https://images.unsplash.com/photo-1542744094-3a31f103e35f?w=800&auto=format&fit=crop&q=80"],
+        features: ["Gestão de Redes Sociais", "Tráfego Pago", "Criação de Conteúdo"]
+    },
+    {
+        id: 5,
+        title: "Sinalética & Impressão de Grande Formato",
+        category: "Gráfica",
+        slug: "sinaletica-impressao",
+        description: "Produção e instalação de sinalética corporativa, reclames luminosos, decoração de viaturas e montras, e lonas publicitárias.",
+        icon: "Printer",
+        gallery: ["https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=800&auto=format&fit=crop&q=80"],
+        features: ["Reclames Luminosos", "Decoração de Viaturas", "Roll-ups e Banners"]
+    },
+    {
+        id: 6,
+        title: "Mobiliário Corporativo & Carpintaria",
+        category: "Produção",
+        slug: "mobiliario-corporativo",
+        description: "Design e fabrico de mobiliário de escritório por medida, stands para feiras e soluções de carpintaria comercial sob padrão premium.",
+        icon: "Hammer",
+        gallery: ["https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&auto=format&fit=crop&q=80"],
+        features: ["Secretárias e Arquivos", "Stands de Feiras", "Mobiliário por Medida"]
+    }
+];
+
 const ServicesPage = () => {
     const navigate = useNavigate();
     const [services, setServices] = useState<any[]>([]);
@@ -33,13 +96,17 @@ const ServicesPage = () => {
             const response = await fetch('/api/services');
             if (response.ok) {
                 const data = await response.json();
-                setServices(data);
+                if (data && data.length > 0) {
+                    setServices(data);
+                    setLoading(false);
+                    return;
+                }
             }
         } catch (error) {
             console.error('Error fetching services:', error);
-        } finally {
-            setLoading(false);
         }
+        setServices(staticServices);
+        setLoading(false);
     };
 
     if (loading) return (

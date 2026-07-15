@@ -5,10 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
 const productImages = [
-    'https://scontent.fmpm1-1.fna.fbcdn.net/v/t39.30808-6/480856568_661237086477249_535425760345813568_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=sL8VoiXs9WMQ7kNvwHfF-nY&_nc_oc=AdkfVvVWqmN5DUWK8jf-GxxaNtDo5lMw5fReVTWasurg-Nsv3Fmfmv5JybRsaOQv7a4&_nc_pt=5&_nc_zt=23&_nc_ht=scontent.fmpm1-1.fna&_nc_gid=pAHhEtlvX2mhIUYVMmbGKQ&_nc_ss=8&oh=00_AfxF-YnHbAleFBmwYg9tJ-mDKJwf_DG5Lzwc_6D6jx3Euw&oe=69B49E67',
-    'https://scontent.fmpm5-1.fna.fbcdn.net/v/t39.30808-6/480781349_661236439810647_8978684797533376523_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=WJKjveIH4woQ7kNvwHAVjzs&_nc_oc=Adl--v7XxWmsJe84285IOPVNwT9910s-x8aNajclj_3e_yHt20SJgc9OZHr2FeJtAC0&_nc_pt=5&_nc_zt=23&_nc_ht=scontent.fmpm5-1.fna&_nc_gid=6e1sKQp8_zHcDcCkWht34w&_nc_ss=8&oh=00_AfwRoclcWosdVLJDxJiXtTZgdmsGpHqrQCRpF3PMBPFiLQ&oe=69B4A7DF',
-    'https://scontent.fmpm5-1.fna.fbcdn.net/v/t39.30808-6/480804780_661223496478608_1118236541340582006_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=111&ccb=1-7&_nc_sid=13d280&_nc_ohc=moNKUuG2k74Q7kNvwHSwACU&_nc_oc=AdlBIX2yDQTN4lRnoHZOh1i6dlSP9KHQaDg0IN7Iwn840FKWG3EphVI0q-nIfUbVKAo&_nc_pt=5&_nc_zt=23&_nc_ht=scontent.fmpm5-1.fna&_nc_gid=6e1sKQp8_zHcDcCkWht34w&_nc_ss=8&oh=00_Afza32aAfXk8bytk9cpi32jUSKI25QoUc323jc2SfQniFg&oe=69B4887C',
-    'https://scontent.fmpm5-1.fna.fbcdn.net/v/t39.30808-6/474686790_637556692178622_7235889011722148146_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_ohc=ubOaIIXqCBMQ7kNvwHAHQj_&_nc_oc=AdlhFo44E2tHogFG2ZOBToTOzWEl1xzRi9s1VCxgzs_wTzV9lBB2_Gnt-TS6DhEsMFY&_nc_pt=5&_nc_zt=23&_nc_ht=scontent.fmpm5-1.fna&_nc_gid=jtMV3H-P5DONfV7kitxWKQ&_nc_ss=8&oh=00_Afzsd1itYjsfDUai8txm1_7EvaAHh_nGnUmrf6zJsS8Qhg&oe=69B4793F'
+    'https://images.unsplash.com/photo-1542744094-3a31f103e35f?w=1000&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=1000&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1581428982868-e410dd047a90?w=1000&auto=format&fit=crop&q=80'
 ];
 
 const iconMap: { [key: string]: React.ReactNode } = {
@@ -21,6 +21,69 @@ const iconMap: { [key: string]: React.ReactNode } = {
     'Shield': <Shield size={32} />,
     'Rocket': <Rocket size={32} />
 };
+
+const staticServices = [
+    {
+        id: 1,
+        title: "Identidade Visual & Branding",
+        category: "Design",
+        slug: "identidade-visual-branding",
+        description: "Criamos logótipos únicos, paletas de cores, tipografia e diretrizes de marca completas para posicionar o seu negócio no mercado moçambicano.",
+        icon: "Palette",
+        gallery: ["https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&auto=format&fit=crop&q=80"],
+        features: ["Design de Logotipo", "Manual de Marca", "Estacionário Completo"]
+    },
+    {
+        id: 2,
+        title: "Desenvolvimento Web & E-commerce",
+        category: "Tecnologia",
+        slug: "desenvolvimento-web-ecommerce",
+        description: "Websites institucionais e lojas online rápidas, seguras e otimizadas para motores de busca (SEO) que convertem visitantes em clientes.",
+        icon: "Globe",
+        gallery: ["https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=80"],
+        features: ["Sites Responsivos", "Lojas Shopify/WooCommerce", "Integração M-Pesa"]
+    },
+    {
+        id: 3,
+        title: "Produção Multimédia & Vídeo",
+        category: "Produção",
+        slug: "producao-multimedia-video",
+        description: "Produção de vídeo promocional, cobertura de eventos, fotografia corporativa e pós-produção profissional com qualidade cinematográfica.",
+        icon: "Video",
+        gallery: ["https://images.unsplash.com/photo-1622737133809-d95047b9e673?w=800&auto=format&fit=crop&q=80"],
+        features: ["Vídeos Promocionais", "Edição de Vídeo", "Fotografia Comercial"]
+    },
+    {
+        id: 4,
+        title: "Marketing Digital & Redes Sociais",
+        category: "Marketing",
+        slug: "marketing-digital-redes-sociais",
+        description: "Gestão estratégica de redes sociais, campanhas patrocinadas (Google e Meta Ads) e criação de conteúdo focado no engajamento da marca.",
+        icon: "Share2",
+        gallery: ["https://images.unsplash.com/photo-1542744094-3a31f103e35f?w=800&auto=format&fit=crop&q=80"],
+        features: ["Gestão de Redes Sociais", "Tráfego Pago", "Criação de Conteúdo"]
+    },
+    {
+        id: 5,
+        title: "Sinalética & Impressão de Grande Formato",
+        category: "Gráfica",
+        slug: "sinaletica-impressao",
+        description: "Produção e instalação de sinalética corporativa, reclames luminosos, decoração de viaturas e montras, e lonas publicitárias.",
+        icon: "Printer",
+        gallery: ["https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=800&auto=format&fit=crop&q=80"],
+        features: ["Reclames Luminosos", "Decoração de Viaturas", "Roll-ups e Banners"]
+    },
+    {
+        id: 6,
+        title: "Mobiliário Corporativo & Carpintaria",
+        category: "Produção",
+        slug: "mobiliario-corporativo",
+        description: "Design e fabrico de mobiliário de escritório por medida, stands para feiras e soluções de carpintaria comercial sob padrão premium.",
+        icon: "Hammer",
+        gallery: ["https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&auto=format&fit=crop&q=80"],
+        features: ["Secretárias e Arquivos", "Stands de Feiras", "Mobiliário por Medida"]
+    }
+];
 
 const Home = () => {
     const navigate = useNavigate();
@@ -41,14 +104,19 @@ const Home = () => {
     const fetchServices = async () => {
         try {
             const response = await fetch('/api/services');
-            if (!response.ok) throw new Error('API Error');
-            const data = await response.json();
-            setServices(data.slice(0, 6)); // Show more services for a richer grid
+            if (response.ok) {
+                const data = await response.json();
+                if (data && data.length > 0) {
+                    setServices(data.slice(0, 6));
+                    setLoading(false);
+                    return;
+                }
+            }
         } catch (error) {
             console.error('Error fetching services:', error);
-        } finally {
-            setLoading(false);
         }
+        setServices(staticServices);
+        setLoading(false);
     };
 
     const partners = [
